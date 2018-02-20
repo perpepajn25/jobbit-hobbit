@@ -1,19 +1,22 @@
-import React from 'react'
+import React from "react";
+import { connect } from "react-redux";
+import { selectHobbit } from "./actions";
 
-const Hobbit = (props) => {
-  console.log(props.image_url)
+const Hobbit = props => {
+  console.log(props.image_url);
+
   return (
-    <div>
-      <img alt={props.name} src={props.image_url}/>
-      <h3> {props.name} </h3>
-      <h3> {props.title} </h3>
-      <h3> {props.field} </h3>
-      <h3> {props.seniority} </h3>
-      <h3> {props.position} </h3>
-      <h3> {props.key_skill} </h3>
-      <h3> {props.employment_type} </h3>
+    <div className="props" onClick={() => props.selectHobbit(props)}>
+      <img alt={props.name} src={props.image_url} />
+      <h3> Name: {props.name} </h3>
+      <h3> Title: {props.title} </h3>
+      <h3> Field: {props.field} </h3>
+      <h3> Seniority: {props.seniority} </h3>
+      <h3> Position: {props.position} </h3>
+      <h3> Key Skill: {props.key_skill} </h3>
+      <h3> Employment Type: {props.employment_type} </h3>
     </div>
-  )
-}
+  );
+};
 
-export default Hobbit
+export default connect(null, { selectHobbit })(Hobbit);

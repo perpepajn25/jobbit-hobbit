@@ -22,7 +22,31 @@
   font-size: large;
 }
 
+.hobbitsContainer {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  width: 100vw;
+  height: 100vh;
+}
+
+.hobbit {
+  padding: 1em;
+}
+
+.logo {
+  text-align: center;
+  font-size: 350%;
+}
+
+img {
+  width: 100%;
+}
+
 @keyframes App-logo-spin {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
 }

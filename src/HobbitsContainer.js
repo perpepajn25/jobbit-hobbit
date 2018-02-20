@@ -1,29 +1,27 @@
-import React from 'react'
-import Hobbit from './Hobbit'
-import { connect } from 'react-redux'
-import { fetchHobsWithJobs } from './actions'
+import React from "react";
+import Hobbit from "./Hobbit";
+import EditHobbit from "./EditHobbit";
+import { connect } from "react-redux";
+import { fetchHobsWithJobs } from "./actions";
 
 class HobbitsContainer extends React.Component {
-  componentDidMount(){
+  componentDidMount() {
     this.props.fetchHobsWithJobs()
   }
 
-  render(){
-    const hobsWithJobs = this.props.hobbits.map((hobbit) => {
-      return <Hobbit {...hobbit} />
-    })
+  render() {
+    const hobsWithJobs = this.props.hobbits.map(hobbit => {
+      return <Hobbit {...hobbit} />;
+    });
+    console.log(this.props.hobbits)
     return (
       <div>
-        {hobsWithJobs}
+        <div className="logo">Jobbit</div>
+        <EditHobbit />
+        <div className="hobbitsContainer">{hobsWithJobs}</div>
       </div>
-    )
+    );
   }
 }
 
-const mapDispatchToProps = (dispatch) => {
-  return {
-    fetchHobsWithJobs: ()=>(dispatch(fetchHobsWithJobs()))
-  }
-}
-
-export default connect((state)=> ({hobbits: state.hobbits}), mapDispatchToProps)(HobbitsContainer)
+export default connect((state)=> ({hobbits: state.hobbits}), { fetchHobsWithJobs })(HobbitsContainer)
