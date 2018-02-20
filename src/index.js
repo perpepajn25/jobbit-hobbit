@@ -4,7 +4,7 @@ import './index.css';
 import App from './App';
 import registerServiceWorker from './registerServiceWorker';
 import { Provider } from 'react-redux'
-import { createStore, applyMiddleware } from 'redux'
+import { createStore } from 'redux'
 import hobbitReducer from './reducers'
 
 const store = createStore(hobbitReducer)
