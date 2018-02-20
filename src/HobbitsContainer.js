@@ -20,4 +20,10 @@ class HobbitsContainer extends React.Component {
   }
 }
 
-export default connect((state)=> ({hobbits: state.hobbits}), { fetchHobsWithJobs })(HobbitsContainer)
+const mapDispatchToProps = (dispatch) => {
+  return {
+    fetchHobsWithJobs: ()=>(dispatch(fetchHobsWithJobs()))
+  }
+}
+
+export default connect((state)=> ({hobbits: state.hobbits}), mapDispatchToProps)(HobbitsContainer)
