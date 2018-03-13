@@ -1,5 +1,5 @@
 //Adapters allow us to abstract out repetitive code, such as the base url and headers
-const baseUrl = `http://localhost:3000/`;
+const baseUrl = `http://localhost:3000`;
 
 function headers() {
   return {
@@ -62,11 +62,9 @@ function postRequest(body) {
 //this is a very basic error handling function.  API responses come with a key,
 //response.ok, which will be true if the status is below 400 and false if above.
 function responseHandler(response) {
-  return response => {
     if (response.ok) {
       return response.json();
     } else {
       console.log("ERROR", response.json());
     }
-  };
 }
